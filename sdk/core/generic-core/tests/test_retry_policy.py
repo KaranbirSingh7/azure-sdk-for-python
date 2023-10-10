@@ -10,19 +10,19 @@ except ImportError:
 
 import pytest
 from itertools import product
-from generic.core.exceptions import (
+from gencore.exceptions import (
     ServiceError,
     ServiceRequestError,
     ServiceRequestTimeoutError,
     ServiceResponseError,
     ServiceResponseTimeoutError,
 )
-from generic.core.runtime.policies import (
+from gencore.runtime.policies import (
     RetryPolicy,
     RetryMode,
 )
-from generic.core.runtime.pipeline import Pipeline, PipelineResponse, PipelineRequest
-from generic.core.transport import HttpTransport
+from gencore.runtime.pipeline import Pipeline, PipelineResponse, PipelineRequest
+from gencore.transport import HttpTransport
 import tempfile
 import os
 import time

@@ -8,7 +8,7 @@ from enum import Enum
 import json
 import sys
 
-from generic.core.serialization import CoreJSONEncoder, NULL
+from gencore.serialization import CoreJSONEncoder, NULL
 import pytest
 
 

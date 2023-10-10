@@ -8,7 +8,7 @@
 # Thank you httpx for your wonderful tests!
 
 import pytest
-from generic.core.rest import HttpRequest
+from gencore.rest import HttpRequest
 
 
 def _format_query_into_url(url, params):

@@ -3,9 +3,9 @@
 # Licensed under the MIT License.
 # ------------------------------------
 import requests
-from generic.core.transport import HttpTransport
-from generic.core.runtime.pipeline import Pipeline
-from generic.core.rest._requests_basic import StreamDownloadGenerator
+from gencore.transport import HttpTransport
+from gencore.runtime.pipeline import Pipeline
+from gencore.rest._requests_basic import StreamDownloadGenerator
 
 try:
     from unittest import mock

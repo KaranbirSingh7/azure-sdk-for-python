@@ -23,7 +23,7 @@
 # THE SOFTWARE.
 #
 # --------------------------------------------------------------------------
-from generic.core.transport.aiohttp import AioHttpTransport
+from gencore.transport.aiohttp import AioHttpTransport
 
 import aiohttp
 

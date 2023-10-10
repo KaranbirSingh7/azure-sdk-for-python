@@ -34,10 +34,10 @@ except ImportError:
 import requests
 import pytest
 
-from generic.core.exceptions import DecodeError, ServiceError
-from generic.core.runtime.pipeline import Pipeline, PipelineResponse, PipelineRequest, PipelineContext
+from gencore.exceptions import DecodeError, ServiceError
+from gencore.runtime.pipeline import Pipeline, PipelineResponse, PipelineRequest, PipelineContext
 
-from generic.core.runtime.policies import (
+from gencore.runtime.policies import (
     NetworkTraceLoggingPolicy,
     ContentDecodePolicy,
     RequestHistory,
@@ -113,7 +113,7 @@ def test_request_history_type_error(http_request):
     assert request_history.http_request.method == request.method
 
 
-@mock.patch("generic.core.runtime.policies._universal._LOGGER")
+@mock.patch("gencore.runtime.policies._universal._LOGGER")
 @pytest.mark.parametrize("http_request,http_response", request_and_responses_product(HTTP_RESPONSES))
 def test_no_log(mock_http_logger, http_request, http_response):
     universal_request = http_request("GET", "http://localhost/")

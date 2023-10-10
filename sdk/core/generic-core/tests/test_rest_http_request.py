@@ -17,8 +17,8 @@ try:
 except ImportError:
     import collections  # type: ignore
 
-from generic.core.rest import HttpRequest
-from generic.core.runtime.policies import SansIOHTTPPolicy
+from gencore.rest import HttpRequest
+from gencore.runtime.policies import SansIOHTTPPolicy
 from rest_client import TestRestClient
 
 
@@ -329,7 +329,7 @@ def test_complicated_json(client):
 
 
 def test_use_custom_json_encoder():
-    # this is to test we're using generic.core.serialization.CoreJSONEncoder
+    # this is to test we're using gencore.serialization.CoreJSONEncoder
     # to serialize our JSON objects
     # since json can't serialize bytes by default but CoreJSONEncoder can,
     # we pass in bytes and check that they are serialized

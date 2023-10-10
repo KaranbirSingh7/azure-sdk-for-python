@@ -3,7 +3,7 @@
 # Licensed under the MIT License.
 # ------------------------------------
 import pytest
-from generic.core.utils import case_insensitive_dict
+from gencore.utils import case_insensitive_dict
 
 
 @pytest.fixture()

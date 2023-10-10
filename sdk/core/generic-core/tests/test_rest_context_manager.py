@@ -5,8 +5,8 @@
 # license information.
 # -------------------------------------------------------------------------
 import pytest
-from generic.core.rest import HttpRequest
-from generic.core.exceptions import ResponseNotReadError
+from gencore.rest import HttpRequest
+from gencore.exceptions import ResponseNotReadError
 
 
 def test_normal_call(client, port):

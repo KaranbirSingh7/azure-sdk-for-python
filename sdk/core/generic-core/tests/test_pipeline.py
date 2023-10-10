@@ -36,20 +36,20 @@ import sys
 
 import pytest
 
-from generic.core.runtime.pipeline import Pipeline
-from generic.core.runtime import PipelineClient
-from generic.core.runtime.policies import (
+from gencore.runtime.pipeline import Pipeline
+from gencore.runtime import PipelineClient
+from gencore.runtime.policies import (
     SansIOHTTPPolicy,
     UserAgentPolicy,
     RetryPolicy,
     HTTPPolicy,
 )
-from generic.core.transport._base import PipelineClientBase, _format_url_section
-from generic.core.transport import HttpTransport
-from generic.core.transport.requests import RequestsTransport
+from gencore.transport._base import PipelineClientBase, _format_url_section
+from gencore.transport import HttpTransport
+from gencore.transport.requests import RequestsTransport
 from utils import HTTP_REQUESTS
 
-from generic.core.exceptions import ServiceError
+from gencore.exceptions import ServiceError
 
 
 @pytest.mark.parametrize("http_request", HTTP_REQUESTS)

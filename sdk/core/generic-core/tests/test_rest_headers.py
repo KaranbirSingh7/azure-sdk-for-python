@@ -8,7 +8,7 @@ import pytest
 
 # NOTE: These tests are heavily inspired from the httpx test suite: https://github.com/encode/httpx/tree/master/tests
 # Thank you httpx for your wonderful tests!
-from generic.core.rest import HttpRequest
+from gencore.rest import HttpRequest
 
 
 @pytest.fixture

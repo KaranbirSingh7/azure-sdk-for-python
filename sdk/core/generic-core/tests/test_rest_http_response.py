@@ -10,9 +10,9 @@
 # Thank you httpx for your wonderful tests!
 import io
 import pytest
-from generic.core.rest import HttpRequest, HttpResponse
-from generic.core.rest._requests_basic import RestRequestsTransportResponse
-from generic.core.exceptions import HttpResponseError
+from gencore.rest import HttpRequest, HttpResponse
+from gencore.rest._requests_basic import RestRequestsTransportResponse
+from gencore.exceptions import HttpResponseError
 import xml.etree.ElementTree as ET
 from utils import readonly_checks
 

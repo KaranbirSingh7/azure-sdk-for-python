@@ -25,7 +25,7 @@
 # --------------------------------------------------------------------------
 from enum import Enum
 
-from generic.core.utils import CaseInsensitiveEnumMeta
+from gencore.utils import CaseInsensitiveEnumMeta
 
 
 class MyCustomEnum(str, Enum, metaclass=CaseInsensitiveEnumMeta):

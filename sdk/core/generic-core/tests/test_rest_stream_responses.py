@@ -5,9 +5,9 @@
 # license information.
 # -------------------------------------------------------------------------
 import pytest
-from generic.core.rest import HttpRequest
-from generic.core.exceptions import StreamClosedError, StreamConsumedError, ResponseNotReadError
-from generic.core.exceptions import HttpResponseError, ServiceRequestError
+from gencore.rest import HttpRequest
+from gencore.exceptions import StreamClosedError, StreamConsumedError, ResponseNotReadError
+from gencore.exceptions import HttpResponseError, ServiceRequestError
 
 
 def _assert_stream_state(response, open):

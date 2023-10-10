@@ -24,7 +24,7 @@
 #
 # --------------------------------------------------------------------------
 import pytest
-from generic.core.exceptions import (
+from gencore.exceptions import (
     ResourceNotFoundError,
     ResourceExistsError,
     map_error,

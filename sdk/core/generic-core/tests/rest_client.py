@@ -23,28 +23,28 @@
 # IN THE SOFTWARE.
 #
 # --------------------------------------------------------------------------
-from generic.core.runtime import PipelineClient
+from gencore.runtime import PipelineClient
 from copy import deepcopy
 
 
 class TestRestClient(object):
     def __init__(self, port, **kwargs):
-        kwargs.setdefault("sdk_moniker", "generic-core/1.0.0b1")
+        kwargs.setdefault("sdk_moniker", "gencore/1.0.0b1")
         self._client = PipelineClient(base_url="http://localhost:{}/".format(port), **kwargs)
 
     def send_request(self, request, **kwargs):
         """Runs the network request through the client's chained policies.
-        >>> from generic.core.rest import HttpRequest
+        >>> from gencore.rest import HttpRequest
         >>> request = HttpRequest("GET", "http://localhost:3000/helloWorld")
         <HttpRequest [GET], url: 'http://localhost:3000/helloWorld'>
         >>> response = client.send_request(request)
         <HttpResponse: 200 OK>
         For more information on this code flow, see https://aka.ms/azsdk/python/protocol/quickstart
         :param request: The network request you want to make. Required.
-        :type request: ~generic.core.rest.HttpRequest
+        :type request: ~gencore.rest.HttpRequest
         :keyword bool stream: Whether the response payload will be streamed. Defaults to False.
         :return: The response of your network call. Does not do error handling on your response.
-        :rtype: ~generic.core.rest.HttpResponse
+        :rtype: ~gencore.rest.HttpResponse
         """
         request_copy = deepcopy(request)
         request_copy.url = self._client.format_url(request_copy.url)

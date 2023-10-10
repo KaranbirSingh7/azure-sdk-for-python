@@ -24,8 +24,8 @@
 #
 # --------------------------------------------------------------------------
 import pytest
-from generic.core.runtime import AsyncPipelineClient
-from generic.core.exceptions import DecodeError
+from gencore.runtime import AsyncPipelineClient
+from gencore.exceptions import DecodeError
 
 from utils import HTTP_REQUESTS
 

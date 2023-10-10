@@ -24,7 +24,7 @@
 #
 # --------------------------------------------------------------------------
 import pytest
-from generic.core.transport.requests import RequestsTransport
+from gencore.transport.requests import RequestsTransport
 from utils import HTTP_REQUESTS
 
 """This file does a simple call to the testserver to make sure we can use the testserver"""

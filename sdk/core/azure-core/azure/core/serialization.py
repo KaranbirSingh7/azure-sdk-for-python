@@ -4,7 +4,7 @@
 # Licensed under the MIT License. See License.txt in the project root for
 # license information.
 # --------------------------------------------------------------------------
-from generic.core.serialization import CoreJSONEncoder, NULL
+from gencore.serialization import CoreJSONEncoder, NULL
 
 AzureJSONEncoder = CoreJSONEncoder
 

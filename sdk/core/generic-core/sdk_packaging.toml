@@ -1,5 +1,5 @@
 [packaging]
-package_name = "generic-core"
+package_name = "gencore"
 package_pprint_name = "Generic Core"
 package_doc_id = ""
 is_stable = false

@@ -7,39 +7,39 @@ import pytest
 import types
 
 ############################## LISTS USED TO PARAMETERIZE TESTS ##############################
-from generic.core.rest import HttpRequest as RestHttpRequest
+from gencore.rest import HttpRequest as RestHttpRequest
 
 HTTP_REQUESTS = [RestHttpRequest]
 REQUESTS_TRANSPORT_RESPONSES = []
 
-from generic.core.rest._http_response_impl import HttpResponseImpl as RestHttpResponse
+from gencore.rest._http_response_impl import HttpResponseImpl as RestHttpResponse
 
 HTTP_RESPONSES = [RestHttpResponse]
 
 ASYNC_HTTP_RESPONSES = []
 
 try:
-    from generic.core.rest._http_response_impl_async import AsyncHttpResponseImpl as RestAsyncHttpResponse
+    from gencore.rest._http_response_impl_async import AsyncHttpResponseImpl as RestAsyncHttpResponse
 
     ASYNC_HTTP_RESPONSES = [RestAsyncHttpResponse]
 except (ImportError, SyntaxError):
     pass
 
 try:
-    from generic.core.rest._requests_basic import RestRequestsTransportResponse
+    from gencore.rest._requests_basic import RestRequestsTransportResponse
 
     REQUESTS_TRANSPORT_RESPONSES = [RestRequestsTransportResponse]
 except ImportError:
     pass
 
-from generic.core.rest._http_response_impl import RestHttpClientTransportResponse
+from gencore.rest._http_response_impl import RestHttpClientTransportResponse
 
 HTTP_CLIENT_TRANSPORT_RESPONSES = [RestHttpClientTransportResponse]
 
 AIOHTTP_TRANSPORT_RESPONSES = []
 
 try:
-    from generic.core.rest._aiohttp import RestAioHttpTransportResponse
+    from gencore.rest._aiohttp import RestAioHttpTransportResponse
 
     AIOHTTP_TRANSPORT_RESPONSES = [RestAioHttpTransportResponse]
 except (ImportError, SyntaxError):

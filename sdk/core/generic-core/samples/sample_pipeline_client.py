@@ -15,9 +15,9 @@ USAGE:
 """
 
 from typing import Iterable, Union
-from generic.core.runtime import PipelineClient
-from generic.core.rest import HttpRequest, HttpResponse
-from generic.core.runtime.policies import (
+from gencore.runtime import PipelineClient
+from gencore.rest import HttpRequest, HttpResponse
+from gencore.runtime.policies import (
     HTTPPolicy,
     SansIOHTTPPolicy,
     HeadersPolicy,
@@ -38,4 +38,5 @@ policies: Iterable[Union[HTTPPolicy, SansIOHTTPPolicy]] = [
 client: PipelineClient[HttpRequest, HttpResponse] = PipelineClient("https://bing.com", policies=policies)
 request = HttpRequest("GET", "https://bing.com")
 response = client.send_request(request)
+pipeline_response = client._pipeline.run(request)
 print(response)

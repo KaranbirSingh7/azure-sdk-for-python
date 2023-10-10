@@ -25,7 +25,7 @@
 # --------------------------------------------------------------------------
 from typing import TypeVar, Iterator
 
-from generic.core.paging import ItemPaged, PageIterator as GenericPageIterator
+from gencore.paging import ItemPaged, PageIterator as GenericPageIterator
 
 from .exceptions import AzureError
 

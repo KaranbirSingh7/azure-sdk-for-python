@@ -25,8 +25,8 @@
 # --------------------------------------------------------------------------
 import re
 
-from generic.core.paging import ItemPaged
-from generic.core.exceptions import HttpResponseError
+from gencore.paging import ItemPaged
+from gencore.exceptions import HttpResponseError
 
 import pytest
 

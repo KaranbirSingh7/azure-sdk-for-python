@@ -27,12 +27,12 @@ import pytest
 from unittest.mock import Mock
 
 # module under test
-from generic.core.exceptions import (
+from gencore.exceptions import (
     HttpResponseError,
     SerializationError,
     DeserializationError,
 )
-from generic.core.rest._http_response_impl import _HttpResponseBaseImpl as RestHttpResponseBase
+from gencore.rest._http_response_impl import _HttpResponseBaseImpl as RestHttpResponseBase
 from utils import HTTP_REQUESTS
 
 

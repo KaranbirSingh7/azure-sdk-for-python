@@ -24,7 +24,7 @@
 #
 # --------------------------------------------------------------------------
 import pytest
-from generic.core.transport.aiohttp import AioHttpTransport
+from gencore.transport.aiohttp import AioHttpTransport
 from utils import HTTP_REQUESTS
 
 """This file does a simple call to the testserver to make sure we can use the testserver"""

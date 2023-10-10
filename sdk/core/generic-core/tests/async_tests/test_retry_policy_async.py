@@ -16,19 +16,19 @@ from itertools import product
 from unittest.mock import Mock
 
 import pytest
-from generic.core.exceptions import (
+from gencore.exceptions import (
     ServiceError,
     ServiceRequestError,
     ServiceRequestTimeoutError,
     ServiceResponseError,
     ServiceResponseTimeoutError,
 )
-from generic.core.runtime.policies import (
+from gencore.runtime.policies import (
     AsyncRetryPolicy,
     RetryMode,
 )
-from generic.core.runtime.pipeline import AsyncPipeline, PipelineResponse, PipelineRequest
-from generic.core.transport import AsyncHttpTransport
+from gencore.runtime.pipeline import AsyncPipeline, PipelineResponse, PipelineRequest
+from gencore.transport import AsyncHttpTransport
 
 from utils import HTTP_REQUESTS, ASYNC_HTTP_RESPONSES, create_http_response, request_and_responses_product
 

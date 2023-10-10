@@ -12,8 +12,8 @@ from io import open
 from setuptools import find_packages, setup  # type: ignore
 
 # Change the PACKAGE_NAME only to change folder and different name
-PACKAGE_NAME = "generic-core"
-PACKAGE_PPRINT_NAME = "Core"
+PACKAGE_NAME = "gencore"
+PACKAGE_PPRINT_NAME = "GenCore"
 
 # a-b-c => a/b/c
 package_folder_path = PACKAGE_NAME.replace("-", "/")
