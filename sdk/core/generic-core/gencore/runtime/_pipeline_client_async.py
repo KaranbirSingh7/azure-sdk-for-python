@@ -40,7 +40,7 @@ from typing import (
 from types import TracebackType
 
 from .pipeline import AsyncPipeline
-from ..transport._base import PipelineClientBase
+from ._base import PipelineClientBase
 from .policies import (
     ContentDecodePolicy,
     AsyncRetryPolicy,
@@ -76,7 +76,7 @@ class _Coroutine(Awaitable[AsyncHTTPResponseType]):
     This permits this code to work for both following requests.
 
     ```python
-    from gencore import AsyncPipelineClient
+    from gencore.runtime import AsyncPipelineClient
     from gencore.rest import HttpRequest
 
     async def main():

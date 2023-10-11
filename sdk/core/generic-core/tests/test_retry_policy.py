@@ -117,9 +117,7 @@ def test_no_retry_on_201(http_request, http_response):
 
         def send(self, request: PipelineRequest, **kwargs: Any) -> PipelineResponse:
             self._count += 1
-            response = create_http_response(
-                http_response, request, None, status_code=201, headers={"Retry-After": "1"}
-            )
+            response = create_http_response(http_response, request, None, status_code=201, headers={"Retry-After": "1"})
             return response
 
     http_request = http_request("GET", "http://localhost/")

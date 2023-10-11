@@ -44,7 +44,7 @@ from typing import (
 )
 from typing_extensions import Protocol, runtime_checkable
 
-from generic.core.exceptions import (
+from gencore.exceptions import (
     SerializationError,
     DeserializationError,
     ServiceError as AzureError,

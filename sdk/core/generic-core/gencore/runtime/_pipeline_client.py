@@ -29,7 +29,7 @@ from collections.abc import Iterable
 from typing import TypeVar, Generic, Optional, Any
 
 from .pipeline import Pipeline
-from ..transport._base import PipelineClientBase
+from ._base import PipelineClientBase
 from ..transport import HttpTransport
 from .policies import (
     ContentDecodePolicy,
@@ -61,15 +61,6 @@ class PipelineClient(PipelineClientBase, Generic[HTTPRequestType, HTTPResponseTy
     :keyword HttpTransport transport: If omitted, RequestsTransport is used for synchronous transport.
     :return: A pipeline object.
     :rtype: ~gencore.runtime.pipeline.Pipeline
-
-    .. admonition:: Example:
-
-        .. literalinclude:: ../samples/test_example_sync.py
-            :start-after: [START build_pipeline_client]
-            :end-before: [END build_pipeline_client]
-            :language: python
-            :dedent: 4
-            :caption: Builds the pipeline client.
     """
 
     def __init__(

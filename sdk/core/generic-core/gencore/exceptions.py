@@ -156,18 +156,6 @@ class ServiceError(Exception):
         self.continuation_token: Optional[str] = kwargs.get("continuation_token")
         super(ServiceError, self).__init__(self.message, *args)
 
-    def raise_with_traceback(self) -> None:
-        """Raise the exception with the existing traceback.
-
-        .. deprecated:: 1.22.0
-           This method is deprecated as we don't support Python 2 anymore. Use raise/from instead.
-        """
-        try:
-            raise super(ServiceError, self).with_traceback(self.exc_traceback)  # pylint: disable=raise-missing-from
-        except AttributeError:
-            self.__traceback__: Optional[TracebackType] = self.exc_traceback
-            raise self  # pylint: disable=raise-missing-from
-
 
 class ServiceRequestError(ServiceError):
     """An error occurred while attempt to make a request to the service.

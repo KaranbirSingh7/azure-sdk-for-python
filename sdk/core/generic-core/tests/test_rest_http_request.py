@@ -344,7 +344,7 @@ def test_request_policies_chain(port):
                 request.http_request.method,
                 request.http_request.url,
                 headers=request.http_request.headers,
-                json={"hello": "world"}
+                json={"hello": "world"},
             )
 
     class NewPolicyModifyHeaders(SansIOHTTPPolicy):
@@ -369,11 +369,7 @@ def test_request_policies_chain(port):
             assert request.http_request.content == '{"hello": "world"}'
             raise ValueError("Passed through the policies!")
 
-    policies = [
-        NewPolicyOne(),
-        NewPolicyModifyHeaders(),
-        NewPolicyValidateRequest()
-    ]
+    policies = [NewPolicyOne(), NewPolicyModifyHeaders(), NewPolicyValidateRequest()]
     request = HttpRequest("DELETE", "/container0/blob0")
     client = TestRestClient(port="5000", policies=policies)
     with pytest.raises(ValueError) as ex:

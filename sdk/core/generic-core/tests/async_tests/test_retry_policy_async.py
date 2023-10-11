@@ -57,7 +57,10 @@ def test_retry_types():
     assert backoff_time == 4
 
 
-@pytest.mark.parametrize("retry_after_input,http_request,http_response", product(["0", "800", "1000", "1200"], HTTP_REQUESTS, ASYNC_HTTP_RESPONSES))
+@pytest.mark.parametrize(
+    "retry_after_input,http_request,http_response",
+    product(["0", "800", "1000", "1200"], HTTP_REQUESTS, ASYNC_HTTP_RESPONSES),
+)
 def test_retry_after(retry_after_input, http_request, http_response):
     retry_policy = AsyncRetryPolicy()
     request = http_request("GET", "http://localhost")
@@ -115,9 +118,7 @@ async def test_no_retry_on_201(http_request, http_response):
 
         async def send(self, request: PipelineRequest, **kwargs: Any) -> PipelineResponse:
             self._count += 1
-            response = create_http_response(
-                http_response, request, None, status_code=201, headers={"Retry-After": "1"}
-            )
+            response = create_http_response(http_response, request, None, status_code=201, headers={"Retry-After": "1"})
             return response
 
     http_request = http_request("GET", "http://localhost/")

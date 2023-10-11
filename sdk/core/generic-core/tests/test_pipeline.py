@@ -359,7 +359,6 @@ def test_add_custom_policy():
         client = PipelineClient(base_url="test", policies=policies, per_retry_policies=[foo_policy])
 
 
-
 @pytest.mark.parametrize("http_request", HTTP_REQUESTS)
 def test_basic_requests(port, http_request):
     request = http_request("GET", "http://localhost:{}/basic/string".format(port))

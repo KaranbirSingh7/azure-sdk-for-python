@@ -17,6 +17,7 @@ import xml.etree.ElementTree as ET
 from utils import readonly_checks
 
 import logging
+
 logging.basicConfig(level=logging.DEBUG)
 
 

@@ -200,7 +200,6 @@ def test_decompress_compressed_header_offline(port, http_request):
         assert decoded == "test"
 
 
-
 @pytest.mark.parametrize("http_request", HTTP_REQUESTS)
 def test_compress_compressed_header(http_request):
     # expect compressed text
