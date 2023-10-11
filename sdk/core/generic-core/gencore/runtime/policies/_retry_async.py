@@ -72,15 +72,6 @@ class AsyncRetryPolicy(RetryPolicyBase, AsyncHTTPPolicy[HttpRequest, AsyncHttpRe
      for [0.0s, 0.2s, 0.4s, ...] between retries. The default value is 0.8.
 
     :keyword int retry_backoff_max: The maximum back off time. Default value is 120 seconds (2 minutes).
-
-    .. admonition:: Example:
-
-        .. literalinclude:: ../samples/test_example_async.py
-            :start-after: [START async_retry_policy]
-            :end-before: [END async_retry_policy]
-            :language: python
-            :dedent: 4
-            :caption: Configuring an async retry policy.
     """
 
     async def _sleep_for_retry(

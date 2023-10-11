@@ -52,15 +52,16 @@ class PipelineClient(PipelineClientBase, Generic[HTTPRequestType, HTTPResponseTy
     Builds a Pipeline client.
 
     :param str base_url: URL for the request.
-    :keyword Pipeline pipeline: If omitted, a Pipeline object is created and returned.
+    :keyword Pipeline pipeline: If omitted, a Pipeline object is created.
     :keyword list[HTTPPolicy] policies: If omitted, a set of standard policies is used.
     :keyword per_call_policies: If specified, the policies will be added into the policy list before RetryPolicy
     :paramtype per_call_policies: Union[HTTPPolicy, SansIOHTTPPolicy, list[HTTPPolicy], list[SansIOHTTPPolicy]]
     :keyword per_retry_policies: If specified, the policies will be added into the policy list after RetryPolicy
     :paramtype per_retry_policies: Union[HTTPPolicy, SansIOHTTPPolicy, list[HTTPPolicy], list[SansIOHTTPPolicy]]
     :keyword HttpTransport transport: If omitted, RequestsTransport is used for synchronous transport.
-    :return: A pipeline object.
-    :rtype: ~gencore.runtime.pipeline.Pipeline
+
+    :ivar pipeline: The Pipeline object associated with the client.
+    :vartype pipeline: ~gencore.runtime.pipeline.Pipeline or None
     """
 
     def __init__(
@@ -69,18 +70,18 @@ class PipelineClient(PipelineClientBase, Generic[HTTPRequestType, HTTPResponseTy
         *,
         pipeline: Optional[Pipeline[HTTPRequestType, HTTPResponseType]] = None,
         **kwargs: Any,
-    ):
+    ) -> None:
         super(PipelineClient, self).__init__(base_url)
         self._base_url = base_url
 
-        self._pipeline = pipeline or self._build_pipeline(**kwargs)
+        self.pipeline = pipeline or self._build_pipeline(**kwargs)
 
     def __enter__(self) -> PipelineClient[HTTPRequestType, HTTPResponseType]:
-        self._pipeline.__enter__()
+        self.pipeline.__enter__()
         return self
 
     def __exit__(self, *exc_details: Any) -> None:
-        self._pipeline.__exit__(*exc_details)
+        self.pipeline.__exit__(*exc_details)
 
     def close(self) -> None:
         self.__exit__()
@@ -157,5 +158,5 @@ class PipelineClient(PipelineClientBase, Generic[HTTPRequestType, HTTPResponseTy
         :rtype: ~gencore.rest.HttpResponse
         """
         stream = kwargs.pop("stream", False)  # want to add default value
-        pipeline_response = self._pipeline.run(request, stream=stream, **kwargs)
+        pipeline_response = self.pipeline.run(request, stream=stream, **kwargs)
         return pipeline_response.http_response

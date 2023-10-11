@@ -129,7 +129,7 @@ class AsyncPipelineClient(
     Builds an AsyncPipeline client.
 
     :param str base_url: URL for the request.
-    :keyword Pipeline pipeline: If omitted, a Pipeline object is created and returned.
+    :keyword Pipeline pipeline: If omitted, a Pipeline object is created.
     :keyword list[AsyncHTTPPolicy] policies: If omitted, a set of standard policies isI  be used.
     :keyword per_call_policies: If specified, the policies will be added into the policy list before RetryPolicy
     :paramtype per_call_policies: Union[AsyncHTTPPolicy, SansIOHTTPPolicy,
@@ -138,17 +138,9 @@ class AsyncPipelineClient(
     :paramtype per_retry_policies: Union[AsyncHTTPPolicy, SansIOHTTPPolicy,
         list[AsyncHTTPPolicy], list[SansIOHTTPPolicy]]
     :keyword AsyncHttpTransport transport: If omitted, AioHttpTransport is used for asynchronous transport.
-    :return: An async pipeline object.
-    :rtype: ~gencore.runtime.pipeline.AsyncPipeline
 
-    .. admonition:: Example:
-
-        .. literalinclude:: ../samples/test_example_async.py
-            :start-after: [START build_async_pipeline_client]
-            :end-before: [END build_async_pipeline_client]
-            :language: python
-            :dedent: 4
-            :caption: Builds the async pipeline client.
+    :ivar pipeline: The Pipeline object associated with the client.
+    :vartype pipeline: ~gencore.runtime.pipeline.Pipeline or None
     """
 
     def __init__(
@@ -160,10 +152,10 @@ class AsyncPipelineClient(
     ):
         super(AsyncPipelineClient, self).__init__(base_url)
         self._base_url = base_url
-        self._pipeline = pipeline or self._build_pipeline(**kwargs)
+        self.pipeline = pipeline or self._build_pipeline(**kwargs)
 
     async def __aenter__(self) -> AsyncPipelineClient[HTTPRequestType, AsyncHTTPResponseType]:
-        await self._pipeline.__aenter__()
+        await self.pipeline.__aenter__()
         return self
 
     async def __aexit__(
@@ -172,7 +164,7 @@ class AsyncPipelineClient(
         exc_value: Optional[BaseException] = None,
         traceback: Optional[TracebackType] = None,
     ) -> None:
-        await self._pipeline.__aexit__(exc_type, exc_value, traceback)
+        await self.pipeline.__aexit__(exc_type, exc_value, traceback)
 
     async def close(self) -> None:
         await self.__aexit__()
@@ -234,7 +226,7 @@ class AsyncPipelineClient(
         return AsyncPipeline[HTTPRequestType, AsyncHTTPResponseType](transport, policies)
 
     async def _make_pipeline_call(self, request: HTTPRequestType, **kwargs) -> AsyncHTTPResponseType:
-        pipeline_response = await self._pipeline.run(request, **kwargs)
+        pipeline_response = await self.pipeline.run(request, **kwargs)
         return pipeline_response.http_response
 
     def send_request(

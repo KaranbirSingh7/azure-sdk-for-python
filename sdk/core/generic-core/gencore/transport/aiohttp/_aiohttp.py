@@ -61,17 +61,7 @@ class AioHttpTransport(AsyncHttpTransport):
     :keyword session: The client session.
     :paramtype session: ~aiohttp.ClientSession
     :keyword bool session_owner: Session owner. Defaults True.
-
     :keyword bool use_env_settings: Uses proxy settings from environment. Defaults to True.
-
-    .. admonition:: Example:
-
-        .. literalinclude:: ../samples/test_example_async.py
-            :start-after: [START aiohttp]
-            :end-before: [END aiohttp]
-            :language: python
-            :dedent: 4
-            :caption: Asynchronous transport with aiohttp.
     """
 
     def __init__(

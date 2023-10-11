@@ -62,15 +62,6 @@ class HeadersPolicy(SansIOHTTPPolicy[HTTPRequestType, HTTPResponseType]):
     operations, and additional headers can also be added dynamically per operation.
 
     :param dict base_headers: Headers to send with the request.
-
-    .. admonition:: Example:
-
-        .. literalinclude:: ../samples/test_example_sansio.py
-            :start-after: [START headers_policy]
-            :end-before: [END headers_policy]
-            :language: python
-            :dedent: 4
-            :caption: Configuring a headers policy.
     """
 
     def __init__(
@@ -122,15 +113,6 @@ class UserAgentPolicy(SansIOHTTPPolicy[HTTPRequestType, HTTPResponseType]):
     :keyword str user_agent: If specified, this will be added in front of the user agent string.
     :keyword str sdk_moniker: If specified, the user agent string will be
         azsdk-python-[sdk_moniker] Python/[python_version] ([platform_version])
-
-    .. admonition:: Example:
-
-        .. literalinclude:: ../samples/test_example_sansio.py
-            :start-after: [START user_agent_policy]
-            :end-before: [END user_agent_policy]
-            :language: python
-            :dedent: 4
-            :caption: Configuring a user agent policy.
     """
 
     _USERAGENT = "User-Agent"
@@ -200,15 +182,6 @@ class NetworkTraceLoggingPolicy(SansIOHTTPPolicy[HTTPRequestType, HTTPResponseTy
     This accepts both global configuration, and per-request level with "enable_http_logger"
 
     :param bool logging_enable: Use to enable per operation. Defaults to False.
-
-    .. admonition:: Example:
-
-        .. literalinclude:: ../samples/test_example_sansio.py
-            :start-after: [START network_trace_logging_policy]
-            :end-before: [END network_trace_logging_policy]
-            :language: python
-            :dedent: 4
-            :caption: Configuring a network trace logging policy.
     """
 
     def __init__(self, logging_enable: bool = False, **kwargs: Any):  # pylint: disable=unused-argument
@@ -495,15 +468,6 @@ class ProxyPolicy(SansIOHTTPPolicy[HTTPRequestType, HTTPResponseType]):
 
     :param dict proxies: Maps protocol or protocol and hostname to the URL
      of the proxy.
-
-    .. admonition:: Example:
-
-        .. literalinclude:: ../samples/test_example_sansio.py
-            :start-after: [START proxy_policy]
-            :end-before: [END proxy_policy]
-            :language: python
-            :dedent: 4
-            :caption: Configuring a proxy policy.
     """
 
     def __init__(

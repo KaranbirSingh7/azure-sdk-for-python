@@ -115,15 +115,6 @@ class AsyncPipeline(AsyncContextManager["AsyncPipeline"], Generic[HTTPRequestTyp
     :param transport: The async Http Transport instance.
     :type transport: ~gencore.transport.AsyncHttpTransport
     :param list policies: List of configured policies.
-
-    .. admonition:: Example:
-
-        .. literalinclude:: ../samples/test_example_async.py
-            :start-after: [START build_async_pipeline]
-            :end-before: [END build_async_pipeline]
-            :language: python
-            :dedent: 4
-            :caption: Builds the async pipeline for asynchronous transport.
     """
 
     def __init__(

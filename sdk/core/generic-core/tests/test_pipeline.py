@@ -44,7 +44,7 @@ from gencore.runtime.policies import (
     RetryPolicy,
     HTTPPolicy,
 )
-from gencore.transport._base import PipelineClientBase, _format_url_section
+from gencore.runtime._base import PipelineClientBase, _format_url_section
 from gencore.transport import HttpTransport
 from gencore.transport.requests import RequestsTransport
 from utils import HTTP_REQUESTS

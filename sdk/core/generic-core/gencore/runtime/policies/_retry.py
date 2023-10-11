@@ -418,15 +418,6 @@ class RetryPolicy(RetryPolicyBase, HTTPPolicy[HttpRequest, HttpResponse]):
     :keyword RetryMode retry_mode: Fixed or exponential delay between attemps, default is exponential.
 
     :keyword int timeout: Timeout setting for the operation in seconds, default is 604800s (7 days).
-
-    .. admonition:: Example:
-
-        .. literalinclude:: ../samples/test_example_sync.py
-            :start-after: [START retry_policy]
-            :end-before: [END retry_policy]
-            :language: python
-            :dedent: 4
-            :caption: Configuring a retry policy.
     """
 
     def _sleep_for_retry(

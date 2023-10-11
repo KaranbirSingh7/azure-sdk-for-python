@@ -73,15 +73,6 @@ class RequestsTransport(HttpTransport):
     :keyword requests.Session session: Request session to use instead of the default one.
     :keyword bool session_owner: Decide if the session provided by user is owned by this transport. Default to True.
     :keyword bool use_env_settings: Uses proxy settings from environment. Defaults to True.
-
-    .. admonition:: Example:
-
-        .. literalinclude:: ../samples/test_example_sync.py
-            :start-after: [START requests]
-            :end-before: [END requests]
-            :language: python
-            :dedent: 4
-            :caption: Synchronous transport with Requests.
     """
 
     _protocols = ["http://", "https://"]

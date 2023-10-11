@@ -111,15 +111,6 @@ class Pipeline(ContextManager["Pipeline"], Generic[HTTPRequestType, HTTPResponse
     :param transport: The Http Transport instance
     :type transport: ~gencore.transport.HttpTransport
     :param list policies: List of configured policies.
-
-    .. admonition:: Example:
-
-        .. literalinclude:: ../samples/test_example_sync.py
-            :start-after: [START build_pipeline]
-            :end-before: [END build_pipeline]
-            :language: python
-            :dedent: 4
-            :caption: Builds the pipeline for synchronous transport.
     """
 
     def __init__(
